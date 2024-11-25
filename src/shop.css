@@ -1,0 +1,188 @@
+.shop {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 20px;
+    background: linear-gradient(to bottom, #02020b, #0c1218 50%, #060613 100%);
+}
+
+.shopBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 40px 70px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 50px 160px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 90px 40px, #ffffff, rgba(0,0,0,0)),
+        radial-gradient(2px 2px at 130px 80px, #ffffff, rgba(0,0,0,0));
+    background-repeat: repeat;
+    animation: twinkle 15s linear infinite;
+}
+
+@keyframes twinkle {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100%); }
+}
+
+.shoptitle {
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.shoptitle h1 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    margin: 0;
+    padding: 20px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.products {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* Exactly 3 columns */
+    gap: 0.5rem;
+    place-items: center;
+    padding: 20px;
+}
+
+.product {
+    border-radius: 25px;
+    width: 400px;  /* Fixed width */
+    height: 450px; /* Fixed height */
+    margin: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(28, 32, 51, 0.95); /* Dark navy background */
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+.product img {
+    width: 280px;
+    height: 280px;
+    object-fit: contain;
+    margin-bottom: 20px;
+}
+
+.product .desc {
+    text-align: center;
+    color: white;
+    font-size: 1.2rem;
+    margin: 15px 0;
+}
+
+.addcartbtn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    min-width: 140px;
+    transition: all 0.3s ease;
+}
+
+.addcartbtn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: white;
+    color: rgb(7, 1, 43);
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+/* Media Queries for Responsiveness */
+
+@media screen and (max-width: 1400px) {
+    .products {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .products {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+    }
+    
+    .product {
+        width: 90%;
+        max-width: 400px;
+    }
+}
+.cream-text {
+    color: #FFFDD0; /* Cream color */
+  }
+  .shoptitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between text and icon */
+  }
+  
+  .store-icon {
+    width: 90px;  /* Adjust size as needed */
+    height: 90px;
+    margin-left: 20px; /* Adjust spacing */
+    padding-top: 50px;
+    margin-top: 30px;
+  }
+.typing-text {
+    border-right: 2px solid white;
+    animation: blink 0.75s step-end infinite;
+    white-space: nowrap;
+  }
+  
+  .store-name {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  
+  @keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: white; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .shoptitle h1 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    margin: 0;
+    padding: 20px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    display: inline-block;
+    min-height: 4rem; /* Prevents jumping */
+  }

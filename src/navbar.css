@@ -1,0 +1,69 @@
+.navbar {
+    width: 100%;
+    height: 160px;
+    background-color: rgba(0, 0, 0, 0.88);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.links {
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+}
+.links a {
+    text-decoration: none;
+    color: rgb(7, 99, 179);
+    margin-left: 20px;
+    font-size: 25px;
+    font-size: 30px;
+    font-weight: 900;
+}
+.navbar {
+    position: relative;
+    
+    padding: 10px 0;  /* Adjust padding */
+    overflow: hidden;  /* Prevents content from overflowing */
+  }
+  
+  .marquee {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: absolute;  /* Position within the navbar */
+    top: 50%;  /* Vertically center */
+    transform: translateY(-50%);  /* Centering trick */
+    z-index: 1;  /* Ensure it doesn't cover links */
+    color: rgb(255, 255, 255);
+    font-size: 1em;  /* Adjust font size */
+  }
+  
+  .marquee h1 {
+    display: inline-block;
+    animation: marquee 12s linear infinite;  /* Adjust speed */
+    padding-right: 30%;  /* Space before it loops again */
+    padding-top: 140px;
+
+    word-spacing: 10px;
+  }
+  
+  @keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  
+  .links {
+    position: relative;
+    z-index: 2;  /* Ensure links stay on top */
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+  }
+  
+  .links a {
+    
+    text-decoration: none;
+    margin: 0 15px;
+  }
+  
