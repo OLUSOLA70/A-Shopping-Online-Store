@@ -42,6 +42,7 @@ img {
         font-size: 2.5rem;
     }
 }
+
 /* Flex container for items */
 .items-container {
     display: flex;
@@ -77,5 +78,22 @@ img {
 
     .item-card {
         width: 200px;
+    }
+}
+
+/* Additional Mobile-Friendly Adjustments */
+@media (max-width: 600px) {
+    .items-container {
+        flex-direction: column;  /* Stack items vertically */
+        align-items: center;  /* Center items horizontally */
+    }
+
+    .item-card {
+        width: 90%;  /* Take most of the screen width */
+        margin-bottom: 20px;  /* Space between items */
+    }
+
+    h1 {
+        font-size: 1.2rem;  /* Smaller heading on mobile */
     }
 }

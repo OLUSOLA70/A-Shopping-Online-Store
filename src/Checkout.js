@@ -12,31 +12,38 @@ const CheckoutForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     if (!stripe || !elements) {
       return;
     }
-
+  
     const cardElement = elements.getElement(CardElement);
-
+  
+    // Check if cardElement exists and if the user entered anything
+    if (!cardElement || cardElement._empty) {
+      alert("Please enter your card details!");
+      return; // Prevent proceeding if card details are not provided
+    }
+  
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: cardElement,
     });
-
+  
     if (error) {
       console.error(error);
+      alert('There was an error processing your payment.');
     } else {
       alert('Payment successful! No backend to verify, but integration works!');
       console.log(paymentMethod); // For testing
     }
   };
-
+  
   return (
     <form onSubmit={handleSubmit}>
       <CardElement />
       <button type="submit" disabled={!stripe}>
-        Pay Now!!!!!
+        Pay Now
       </button>
     </form>
   );

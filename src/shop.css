@@ -3,7 +3,7 @@
     min-height: 100vh;
     overflow-x: hidden;
     padding: 20px;
-    background: linear-gradient(to bottom, #02020b, #0c1218 50%, #060613 100%);
+    background: linear-gradient(to bottom, #747477, #474748 50%, #212122 100%);
 }
 
 .shopBackground {
@@ -13,6 +13,10 @@
     width: 100%;
     height: 100%;
     z-index: -2;
+}
+.store-icon {
+    width: 30%;
+    margin-left: 10px;
 }
 
 .stars {
@@ -42,12 +46,13 @@
     text-align: center;
     position: relative;
     z-index: 1;
+    width: auto;
 }
 
 .shoptitle h1 {
-    color: #ffffff;
-    font-size: 2.5rem;
-    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    color: rgba(15, 110, 15, 0.738);
+    font-size: 3.5rem;
+    
     margin: 0;
     padding: 20px;
     background: rgba(0,0,0,0.5);
@@ -57,25 +62,24 @@
 
 .products {
     width: 100%;
-    height: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* Exactly 3 columns */
-    gap: 0.5rem;
+    grid-template-columns: repeat(3, 1fr);  /* 3 columns on large screens */
+    gap: 1.3rem;
     place-items: center;
     padding: 20px;
 }
 
 .product {
     border-radius: 25px;
-    width: 400px;  /* Fixed width */
-    height: 450px; /* Fixed height */
+    width: 400px;
+    height: 450px;
     margin: 20px;
     padding: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(28, 32, 51, 0.95); /* Dark navy background */
+    background: rgb(47, 47, 41);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease;
@@ -88,10 +92,10 @@
 }
 
 .product img {
-    width: 280px;
-    height: 280px;
+    width: 260px;
+    height: 235px;
     object-fit: contain;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .product .desc {
@@ -107,23 +111,25 @@
     color: white;
     padding: 12px 25px;
     border-radius: 25px;
-    min-width: 140px;
     transition: all 0.3s ease;
 }
 
 .addcartbtn:hover {
     background-color: rgba(255, 255, 255, 0.2);
     border-color: white;
-    color: rgb(7, 1, 43);
+    color: beige;
     cursor: pointer;
-    transform: scale(1.05);
+    transform: scale(1.09);
 }
-
-/* Media Queries for Responsiveness */
 
 @media screen and (max-width: 1400px) {
     .products {
         grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+    }
+
+    .product {
+        width: 350px;
+        height: 400px;
     }
 }
 
@@ -133,56 +139,36 @@
     }
     
     .product {
-        width: 90%;
+        width: 90%; /* Adjust product width */
         max-width: 400px;
     }
+
+    .shoptitle h1 {
+        font-size: 2rem; /* Smaller title on smaller screens */
+    }
 }
-.cream-text {
-    color: #FFFDD0; /* Cream color */
-  }
-  .shoptitle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; /* Space between text and icon */
-  }
-  
-  .store-icon {
-    width: 90px;  /* Adjust size as needed */
-    height: 90px;
-    margin-left: 20px; /* Adjust spacing */
-    padding-top: 50px;
-    margin-top: 30px;
-  }
-.typing-text {
-    border-right: 2px solid white;
-    animation: blink 0.75s step-end infinite;
-    white-space: nowrap;
-  }
-  
-  .store-name {
-    opacity: 0;
-    animation: fadeIn 1s forwards;
-  }
-  
-  @keyframes blink {
-    from, to { border-color: transparent }
-    50% { border-color: white; }
-  }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-  
-  .shoptitle h1 {
-    color: #ffffff;
-    font-size: 2.5rem;
-    text-shadow: 0 0 10px rgba(255,255,255,0.5);
-    margin: 0;
-    padding: 20px;
-    background: rgba(0,0,0,0.5);
-    border-radius: 10px;
-    display: inline-block;
-    min-height: 4rem; /* Prevents jumping */
-  }
+
+@media screen and (max-width: 480px) {
+    .product {
+        padding: 20px; /* Adjust padding */
+        height: auto; /* Allow flexible height */
+        border-radius: 15px; /* Smaller border radius */
+    }
+
+    .product img {
+        width: 70%; /* Smaller image */
+    }
+
+    .product .desc {
+        font-size: 1rem; /* Smaller font size */
+    }
+
+    .addcartbtn {
+        padding: 10px 20px; /* Smaller button padding */
+        font-size: 0.9em;
+    }
+
+    .shoptitle h1 {
+        font-size: 1.5rem; /* Adjust title size */
+    }
+}

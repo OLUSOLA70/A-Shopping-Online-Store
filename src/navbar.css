@@ -1,69 +1,123 @@
+/* Navbar container */
 .navbar {
-    width: 100%;
-    height: 160px;
-    background-color: rgba(0, 0, 0, 0.88);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  width: 100%;
+  height: 100px; /* Reduced height */
+  background-color: rgba(0, 0, 0, 0.88);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 20px;
+ top: 0;
+  z-index: 10; /* High value for priority */
+  position: sticky;
 }
+
+/* Logo or title in the navbar */
+.navbar h1 {
+  color: white;
+  font-size: 1.6rem;
+  margin: 0;
+}
+.cart-icon-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
 
 .links {
-    margin-right: 50px;
-    display: flex;
-    align-items: center;
+  margin-right: 80px;
+  margin-top: 70px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 5;
 }
-.links a {
-    text-decoration: none;
-    color: rgb(7, 99, 179);
-    margin-left: 20px;
-    font-size: 25px;
-    font-size: 30px;
-    font-weight: 900;
-}
-.navbar {
-    position: relative;
-    
-    padding: 10px 0;  /* Adjust padding */
-    overflow: hidden;  /* Prevents content from overflowing */
-  }
-  
-  .marquee {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    position: absolute;  /* Position within the navbar */
-    top: 50%;  /* Vertically center */
-    transform: translateY(-50%);  /* Centering trick */
-    z-index: 1;  /* Ensure it doesn't cover links */
-    color: rgb(255, 255, 255);
-    font-size: 1em;  /* Adjust font size */
-  }
-  
-  .marquee h1 {
-    display: inline-block;
-    animation: marquee 12s linear infinite;  /* Adjust speed */
-    padding-right: 30%;  /* Space before it loops again */
-    padding-top: 140px;
 
-    word-spacing: 10px;
+.links a {
+  text-decoration: none;
+  color: rgb(7, 99, 179);
+  margin-left: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  pointer-events: auto;
+}
+
+
+.links a:hover {
+  color: rgb(255, 255, 255);  /* White on hover */
+}
+
+.marquee {
+  width: 100%;
+  white-space: nowrap;
+  position: absolute;
+  top: 40%; /* Center vertically */
+  transform: translateY(-50%);
+  z-index: 1; /* Lower than links */
+}
+
+
+.marquee h1 {
+  display: inline-block;
+  animation: marquee 12s linear infinite;
+  padding-right: 30%;
+  word-spacing: 10px;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Media Queries for Responsive Design */
+
+/* Medium screens */
+@media (max-width: 768px) {
+  .navbar {
+      flex-direction: column; /* Stack items vertically */
+      height: auto;
+      padding: 10px;
   }
-  
-  @keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-  
+
   .links {
-    position: relative;
-    z-index: 2;  /* Ensure links stay on top */
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 20px;
+      margin-top: 10px;
+      justify-content: center;
   }
-  
+
   .links a {
-    
-    text-decoration: none;
-    margin: 0 15px;
+      margin: 0 10px;  /* Reduce margin between links */
+      font-size: 1rem;
   }
-  
+
+  .marquee {
+      font-size: 0.9rem;  /* Smaller text for smaller screens */
+  }
+}
+
+/* Small screens */
+@media (max-width: 480px) {
+  .navbar {
+      padding: 5px;
+  }
+
+  .links a {
+      font-size: 0.9rem;  /* Smaller text */
+      margin: 0 5px;  /* Less spacing between links */
+  }
+
+  .marquee {
+      display: none;  /* Hide marquee on small screens for simplicity */
+  }
+}

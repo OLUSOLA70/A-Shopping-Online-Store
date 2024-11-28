@@ -1,84 +1,134 @@
 /* Main cart container */
 .cart {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #a8a7ab; /* Soft background */
-    padding: 30px;
-  }
-  
-  /* Cart item container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #424244; /* Soft background */
+  padding: 30px;
+}
+
+/* Cart item container */
+.cartItem {
+  width: 700px;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); /* Softer shadow */
+  border-radius: 25px;
+  margin: 30px;
+  background: linear-gradient(135deg, #f9f9fa, #616161); /* Gradient background */
+  transition: transform 0.3s ease-in-out;
+}
+
+.cartItem:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Image styling */
+.cartItem img {
+  width: 200px;
+  border-radius: 15px; /* Rounded corners for images */
+  margin: 20px;
+}
+
+/* Item description */
+.cartItem .description {
+  width: 100%;
+  font-size: 24px; /* Slightly smaller for balance */
+  color: #333; /* Dark text for readability */
+  font-weight: 900;
+}
+
+/* Subtotal section */
+.subtotal {
+  font-size: 2.5rem; /* Adjusted font size */
+  font-weight: bolder;
+  color: #0a3121; /* Green for positivity */
+  text-align: center;
+  margin-top: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Add depth */
+}
+
+/* Buttons styling */
+.checkout button {
+  width: 250px;
+  height: 50px;
+  background-color: #030a11; /* Bright blue */
+  color: white;
+  border: none;
+  border-radius: 12px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.checkout button:hover {
+  background-color: #02111f; /* Darker blue on hover */
+}
+
+/* Quantity input styling */
+.countHandler input {
+  width: 50px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2em;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  margin: 0 10px;
+}
+
+.countHandler button {
+  color: beige;
+  background-color: #030a11;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .cartItem {
-    width: 700px;
-    height: 250px;
-    display: flex;
-    
-    align-items: center;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15); /* Softer shadow */
-    border-radius: 25px;
-    margin: 30px;
-    background: linear-gradient(135deg, #f9f9fa, #040512); /* Gradient background */
-    transition: transform 0.3s ease-in-out;
+      width: 90%; /* Adjust cart width */
+      flex-direction: column; /* Stack image and description vertically */
+      height: auto; /* Adjust height */
+      padding: 20px;
   }
-  
-  .cartItem:hover {
-    transform: scale(1.09); /* Slight zoom effect on hover */
-  }
-  
-  /* Image styling */
+
   .cartItem img {
-    width: 200px;
-    border-radius: 15px; /* Rounded corners for images */
-    margin: 20px;
-    align-items: flex-end;
+      width: 80%; /* Make the image responsive */
+      margin: 0 auto 15px auto; /* Center the image with bottom margin */
   }
-  
-  /* Item description */
+
   .cartItem .description {
-    width: 100%;
-    font-size: 24px;  /* Slightly smaller for balance */
-    color: #333;  /* Dark text for readability */
-    font-weight: 900;
+      font-size: 1.5rem; /* Smaller font size */
+      text-align: center; /* Center align text */
   }
-  
-  /* Subtotal section */
-  .subtotal {
-    font-size: 3em;  /* Larger font */
-    font-weight: bolder;
-    color: #0a3121;  /* Green for positivity */
-    text-align: center;
-    margin-top: 20px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Add depth */
-  }
-  
-  /* Buttons styling */
+
   .checkout button {
-    width: 250px;
-    height: 50px;
-    background-color: #0a294c; /* Bright blue */
-    color: white;
-    border: none;
-    border-radius: 12px;
-    margin: 10px;
-    cursor: pointer;
-    font-size: 1.1em;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+      width: 80%; /* Full-width button */
   }
-  
-  .checkout button:hover {
-    background-color: #02111f; /* Darker blue on hover */
+
+  .subtotal {
+      font-size: 2rem; /* Adjust font size for smaller screens */
   }
-  
-  /* Quantity input styling */
-  .countHandler input {
-    width: 50px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.2em;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    margin: 0 10px;
+}
+
+@media (max-width: 480px) {
+  .cartItem {
+      padding: 15px;
+      border-radius: 15px; /* Smaller border radius */
   }
-  
+
+  .cartItem img {
+      width: 70%; /* Smaller image on very small screens */
+  }
+
+  .cartItem .description {
+      font-size: 1.2rem; /* Even smaller font size */
+  }
+
+  .checkout button {
+      width: 100%; /* Full-width button */
+      font-size: 1em; /* Smaller button text */
+  }
+}

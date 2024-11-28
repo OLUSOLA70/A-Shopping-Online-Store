@@ -41,7 +41,7 @@ module.exports = {
       directory: path.join(__dirname, 'public'), // Serve content from 'public'
     },
     compress: true,
-    port: 3020, // Specify the port
+    port: 3022, // Specify the port
     hot: true, // Enable Hot Module Replacement
     open: true, // Open the browser automatically
   },
